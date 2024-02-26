@@ -17,7 +17,7 @@ from config.run_config import *
 DB_PATH = '/home/tiana/Desktop/mathshub_projects/sql/sql_project/data/'
 
 def read_xml(gz_path):
-    db = DB_PATH + 'sql_db_pm_test'
+    db = DB_PATH + 'sql_db_pm_test_small'
     con = sqlite3.connect(db, timeout=10)
     cur = con.cursor()
     gz_id = gz_path[(gz_path.find('24n') + 3):gz_path.find('.')]
@@ -47,7 +47,7 @@ def main():
 
     if DO_TEST: 
         downloads_dir= '/home/tiana/Desktop/mathshub_projects/sql/sql_project/data/gz_test/'
-        name_list =['pubmed24n' + (str(i).zfill(4) + '.xml.gz') for i in range(1, 20)]
+        name_list =['pubmed24n' + (str(i).zfill(4) + '.xml.gz') for i in range(1, 2)]
         gz_path= [downloads_dir + name for name in name_list]
     else:
         downloads_dir= '/home/tiana/Desktop/mathshub_projects/sql/sql_project/data/gz_files/'
